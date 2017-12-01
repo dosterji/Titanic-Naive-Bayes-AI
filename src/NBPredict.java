@@ -10,7 +10,7 @@ import java.util.Scanner;
  */
 public class NBPredict {
     /**
-     * main method.  MODEL MUST BE WRITTEN TO MODEL.TXT
+     * main method.  MODEL MUST BE WRITTEN TO "model.txt"
      * @param args commandLine args
      *             1st: test_file
      *             2nd: output_file
@@ -20,7 +20,7 @@ public class NBPredict {
         nbp.predict(args[0], args[1]);
     }
 
-    private double yes, no;
+    private double yes, no;                       //probability survive or die
     private double[][] bClass, sex, age, cabin;   //The tables for each variable
 
     ///////////////
@@ -126,8 +126,8 @@ public class NBPredict {
             double y=0, n=0;
 
             System.out.println(a/10);
-            y = bClass[b-1][0]*sex[s][0]*age[a/10][0]*cabin[c][0]*yes;
-            n = bClass[b-1][1]*sex[s][1]*age[a/10][1]*cabin[c][1]*no;
+            y = bClass[b-1][1]*sex[s][1]*age[a/10][1]*cabin[c][1]*yes;
+            n = bClass[b-1][0]*sex[s][0]*age[a/10][0]*cabin[c][0]*no;
 
             System.out.println(n);
             if(y>n)
@@ -137,6 +137,7 @@ public class NBPredict {
         }
         pw.close();
     }
+
 
     public void toString(double[][] array) {
         String s = "";
