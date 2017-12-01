@@ -43,7 +43,7 @@ public class NBTrain {
 				
 		
 		//add up the successes for each value.
-		int total_count = 0, yes_count = 0, no_count = 0;
+		double total_count = 0, yes_count = 0;
 		
 		int surv_input = 0, board_input = 0, gend_input = 0, age_input = 0, fare_input = 0;
 		char cabin_input;
@@ -143,8 +143,6 @@ public class NBTrain {
 						//don't add to anything
 						break;
 				}
-			
-				no_count++;
 			}
 			total_count++;
 		}
@@ -246,9 +244,9 @@ public class NBTrain {
 		for(int i = 0; i < age[0].length; i++){
 			mFile.println(age[0][i] + " " + age[1][i]);
 		}
-		for(int i = 0; i < fare[0].length; i++){
+		/*for(int i = 0; i < fare[0].length; i++){
 			mFile.println(fare[0][i] + " " + fare[1][i]);
-		}
+		}*/
 		for(int i = 0; i < cabin[0].length; i++){
 			mFile.println(cabin[0][i] + " " + cabin[1][i]);
 		}

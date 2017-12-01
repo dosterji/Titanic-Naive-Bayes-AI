@@ -9,14 +9,24 @@ import java.util.Scanner;
  * @author dosterji
  */
 public class NBPredict {
-    private int num, yes, no;
-    private double[][] bClass, sex, age, fare, cabin;   //The tables for each variable
+    /**
+     * main method.  MODEL MUST BE WRITTEN TO MODEL.TXT
+     * @param args commandLine args
+     *             1st: test_file
+     *             2nd: output_file
+     */
+    public static void main(String[] args) throws IOException {
+        NBPredict nbp = new NBPredict();
+        nbp.predict(args[0], args[1]);
+    }
+
+    private double yes, no;
+    private double[][] bClass, sex, age, cabin;   //The tables for each variable
 
     ///////////////
     //CONSTRUCTOR//
     ///////////////
     public NBPredict() throws IOException {
-        //TODO: This method will instantiate the tables for each variable
         tableInit("model.txt");
     }
 
@@ -32,11 +42,37 @@ public class NBPredict {
         File f = new File(modelFile);
         Scanner scan = new Scanner(f);
 
-        num = scan.nextInt();
-        yes = scan.nextInt();
-        no = scan.nextInt();
+        bClass = new double[3][2];
+        for(int i=0; i<3; i++) {
+            bClass[i][0] = scan.nextDouble();
+            bClass[i][1] = scan.nextDouble();
+        }
 
-        //TODO: initialize each table with data from the model
+        sex = new double[2][2];
+        for(int i=0; i<2; i++) {
+            sex[i][0] = scan.nextDouble();
+            sex[i][1] = scan.nextDouble();
+        }
+
+        age = new double[10][2];
+        for(int i=0; i<10; i++) {
+            age[i][0] = scan.nextDouble();
+            age[i][1] = scan.nextDouble();
+        }
+
+        cabin = new double[4][2];
+        for(int i =0; i<4; i++) {
+            cabin[i][0] = scan.nextDouble();
+            cabin[i][1] = scan.nextDouble();
+        }
+
+        yes = scan.nextDouble();
+        no = scan.nextDouble();
+
+        toString(bClass);
+        toString(sex);
+        toString(age);
+        toString(cabin);
     }
 
     /**
@@ -45,16 +81,71 @@ public class NBPredict {
      * @param outputFile The name of the file this program should write to
      * @throws IOException Throw it away
      */
-    //TODO: This method or another one should figure out how much of the test file to use (percentage)
     public void predict(String testFile, String outputFile) throws IOException {
         File f = new File(testFile);
         Scanner scan = new Scanner(f);
         PrintWriter pw = new PrintWriter(outputFile);
 
-        while(scan.hasNext()) {
-            //TODO: do the writing to the file.  Will write either a 1 or 0 for each line of the test file.
-        }
+        scan.nextLine();    //Ditch the first two lines
+        scan.nextLine();
 
+        while(scan.hasNext()) {
+            int b, s, a, c;         //variables representing each value
+            char ch;                //for reading the cabin
+            String cab;             //same as above
+            scan.nextInt();         //get rid of the -1
+
+            System.out.println("WOO");
+            b = scan.nextInt();
+            s = scan.nextInt();
+            a = (int) scan.nextDouble();
+            scan.nextDouble();         //fuck the fare
+
+            cab = scan.next();
+            ch = cab.charAt(0);
+
+            //find cabin
+            switch(ch){
+                case'A':
+                    c=0;
+                    break;
+                case'B':
+                    c=1;
+                    break;
+                case'C':
+                    c=2;
+                    break;
+                case'D':
+                    c=3;
+                    break;
+                default:
+                    c=0;
+                    break;
+            }
+
+            double y=0, n=0;
+
+            System.out.println(a/10);
+            y = bClass[b-1][0]*sex[s][0]*age[a/10][0]*cabin[c][0]*yes;
+            n = bClass[b-1][1]*sex[s][1]*age[a/10][1]*cabin[c][1]*no;
+
+            System.out.println(n);
+            if(y>n)
+                pw.append("1\n");
+            else
+                pw.append("0\n");
+        }
         pw.close();
+    }
+
+    public void toString(double[][] array) {
+        String s = "";
+        for(int i=0; i<array.length; i++) {
+            for(int j=0; j<array[0].length; j++) {
+                s += String.format("%4.4f ", array[i][j]);
+            }
+            s += "\n";
+        }
+        System.out.println(s);
     }
 }
