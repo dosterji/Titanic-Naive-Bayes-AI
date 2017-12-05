@@ -86,8 +86,8 @@ public class NBPredict {
         Scanner scan = new Scanner(f);
         PrintWriter pw = new PrintWriter(outputFile);
 
-        scan.nextLine();    //Ditch the first two lines
-        scan.nextLine();
+        //scan.nextLine();    //Ditch the first two lines
+        //scan.nextLine();
 
         while(scan.hasNext()) {
             int b, s, a, c;         //variables representing each value
@@ -95,11 +95,11 @@ public class NBPredict {
             String cab;             //same as above
             scan.nextInt();         //get rid of the -1
 
-            System.out.println("WOO");
+            //System.out.println("WOO");
             b = scan.nextInt();
             s = scan.nextInt();
             a = (int) scan.nextDouble();
-            scan.nextDouble();         //fuck the fare
+            //scan.nextDouble();         //fuck the fare
 
             cab = scan.next();
             ch = cab.charAt(0);
@@ -125,11 +125,11 @@ public class NBPredict {
 
             double y=0, n=0;
 
-            System.out.println(a/10);
+            //System.out.println(a/10);
             y = bClass[b-1][1]*sex[s][1]*age[a/10][1]*cabin[c][1]*yes;
             n = bClass[b-1][0]*sex[s][0]*age[a/10][0]*cabin[c][0]*no;
 
-            System.out.println(n);
+            //System.out.println(n);
             if(y>n)
                 pw.append("1\n");
             else
@@ -147,6 +147,6 @@ public class NBPredict {
             }
             s += "\n";
         }
-        System.out.println(s);
+        //System.out.println(s);
     }
 }

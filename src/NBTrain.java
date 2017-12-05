@@ -161,7 +161,7 @@ public class NBTrain {
 			for(int j = 0; j < boardingClass[0].length; j++){
 				attr_total += boardingClass[i][j];
 			}
-			System.out.println(attr_total);
+			//System.out.println(attr_total);
 			for(int j = 0; j < boardingClass[0].length; j++){
 				boardingClass[i][j] = (boardingClass[i][j] / attr_total);
 			}
@@ -170,7 +170,7 @@ public class NBTrain {
 			for(int j = 0; j < gender[0].length; j++){
 				attr_total += gender[i][j];
 			}
-			System.out.println(attr_total);
+			//System.out.println(attr_total);
 			for(int j = 0; j < gender[0].length; j++){
 				gender[i][j] = (gender[i][j] / attr_total);
 			}
@@ -179,7 +179,7 @@ public class NBTrain {
 			for(int j = 0; j < age[0].length; j++){
 				attr_total += age[i][j];
 			}
-			System.out.println(attr_total);
+			//System.out.println(attr_total);
 			for(int j = 0; j < age[0].length; j++){
 				age[i][j] = (age[i][j] / attr_total);
 			}
@@ -188,7 +188,7 @@ public class NBTrain {
 			for(int j = 0; j < fare[0].length; j++){
 				attr_total += fare[i][j];
 			}
-			System.out.println(attr_total);
+			//System.out.println(attr_total);
 			for(int j = 0; j < fare[0].length; j++){
 				fare[i][j] = (fare[i][j] / attr_total);
 			}
@@ -197,7 +197,7 @@ public class NBTrain {
 			for(int j = 0; j < cabin[0].length; j++){
 				attr_total += cabin[i][j];
 			}
-			System.out.println(attr_total);
+			//System.out.println(attr_total);
 			for(int j = 0; j < cabin[0].length; j++){
 				cabin[i][j] = (cabin[i][j] / attr_total);
 			}
