@@ -1,0 +1,39 @@
+//////////////////////////////////////////////////////////
+//THIS DOCUMENT DESCRIBES HOW THIS PROGRAM SHOULD BE RUN//
+//////////////////////////////////////////////////////////
+
+In order to run this program, the TitanicWindow class must run it's main method.
+Once the TitanicWindow is up and running, predictions can be made by typing
+the data into the JTextArea and either pushing enter of clicking the button.
+    1. The data must be entered in the following order with spaces in between:
+        Boarding_Class Sex Age Cabin
+
+        Example Input:
+                $1 1 10 A
+                $3 0 25 B
+
+    2.  Class: {1, 2, 3}
+        Sex:   {0, 1}
+        Age:   {0-99}
+        Cabin: {A, B, C, D}
+
+        !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    3.  !!!IN ORDER FOR THE GUI TO WORK CORRECTLY, THE FOLLOWING LINES OF CODE MUST BE COMMENTED OUT IN NBPredict !!!
+        !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        !!!                                    Lines: 89, 90, and 102                                             !!!
+        !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+To run the evaluation program and test efficiency, run the programs in the following order
+with the given program arguments
+    $ java NBTrain titanicData.csv model.txt
+    $ java NBPredict RawData.txt results.txt
+    $ java TitanicEvaluation
+
+    TitanicEvaluation will write to TitanicEvals.txt
+
+        !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        !!!IN ORDER FOR THE EVALUATION PROGRAM TO WORK CORRECTLY, THE FOLLOWING LINES OF CODE MUST BE COMMENTED   !!!
+        !!!                                     OUT IN NBPredict                                                  !!!
+        !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        !!!                                    Lines: 89, 90, and 102                                             !!!
+        !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

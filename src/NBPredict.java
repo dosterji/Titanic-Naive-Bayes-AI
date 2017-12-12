@@ -95,7 +95,7 @@ public class NBPredict {
             String cab;             //same as above
             scan.nextInt();         //get rid of the -1
 
-            //System.out.println("WOO");
+
             b = scan.nextInt();
             s = scan.nextInt();
             a = (int) scan.nextDouble();
